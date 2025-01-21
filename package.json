@@ -24,6 +24,7 @@
     "ajv": "^8.17.1",
     "chart.js": "3.9.1",
     "chroma-js": "2.4.2",
+    "eslint-plugin-prettier": "^5.2.3",
     "prop-types": "15.8.1",
     "react": ">=16.8.0",
     "react-chartjs-2": "3.0.5",
@@ -31,7 +32,7 @@
     "react-dom": ">=16.8.0",
     "react-flatpickr": "3.10.13",
     "react-router-dom": "6.11.1",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "stylis": "4.2.0",
     "stylis-plugin-rtl": "2.1.1",
     "uuid": "9.0.0",
@@ -63,20 +64,14 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "eslint": "8.40.0",
-    "eslint-config-prettier": "8.8.0",
-    "eslint-plugin-import": "2.27.5",
-    "eslint-plugin-prettier": "4.2.1",
-    "eslint-plugin-react": "7.32.2",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "prettier": "2.8.8"
-  },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
   "overrides": {
     "svgo": "3.0.2"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^10.0.1"
   }
 }

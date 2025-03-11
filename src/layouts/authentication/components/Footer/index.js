@@ -35,32 +35,32 @@ function Footer() {
           <SoftBox display="flex" justifyContent="center" flexWrap="wrap" mb={3}>
             <SoftBox mr={{ xs: 2, lg: 3, xl: 6 }}>
               <SoftTypography component="a" href="#" variant="body2" color="secondary">
-                Company
+                หน่วยงานผู้รับผิดชอบ
               </SoftTypography>
             </SoftBox>
             <SoftBox mr={{ xs: 2, lg: 3, xl: 6 }}>
               <SoftTypography component="a" href="#" variant="body2" color="secondary">
-                About Us
+                คู่มือวิธีใช้งาน
               </SoftTypography>
             </SoftBox>
             <SoftBox mr={{ xs: 0, lg: 3, xl: 6 }}>
               <SoftTypography component="a" href="#" variant="body2" color="secondary">
-                Team
+                สถิติการใช้งาน
               </SoftTypography>
             </SoftBox>
             <SoftBox mr={{ xs: 2, lg: 3, xl: 6 }}>
-              <SoftTypography component="a" href="#" variant="body2" color="secondary">
-                Product
+              <SoftTypography component="a" href="https://portal.su.ac.th/" variant="body2" color="secondary">
+                ศิลปากร WebPortal
               </SoftTypography>
             </SoftBox>
             <SoftBox mr={{ xs: 2, lg: 3, xl: 6 }}>
-              <SoftTypography component="a" href="#" variant="body2" color="secondary">
-                Blog
+              <SoftTypography component="a" href="https://www.su.ac.th/" variant="body2" color="secondary">
+                เว็บไซต์มหาวิทยาลัยศิลปากร
               </SoftTypography>
             </SoftBox>
             <SoftBox>
               <SoftTypography component="a" href="#" variant="body2" color="secondary">
-                Pricing
+                จำนวนผู้เข้าหน้าเว็บนี้ : 1000 ครั้ง
               </SoftTypography>
             </SoftBox>
           </SoftBox>
@@ -86,7 +86,7 @@ function Footer() {
         </Grid>
         <Grid item xs={12} lg={8} sx={{ textAlign: "center" }}>
           <SoftTypography variant="body2" color="secondary">
-            Copyright &copy; 2021 Soft by Creative Tim.
+            Copyright &copy; 2023  by Sila S. SU-PLANdIV
           </SoftTypography>
         </Grid>
       </Grid>

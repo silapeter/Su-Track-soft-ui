@@ -95,9 +95,9 @@ function Configurator() {
         px={3}
       >
         <SoftBox>
-          <SoftTypography variant="h5">Soft UI Configurator</SoftTypography>
+          <SoftTypography variant="h5">ปรับแต่งหน้าจอ</SoftTypography>
           <SoftTypography variant="body2" color="text">
-            See our dashboard options.
+            ปรับแต่งสภาพแวดล้อมของโปรแกรม
           </SoftTypography>
         </SoftBox>
 
@@ -198,7 +198,7 @@ function Configurator() {
 
         <Divider />
 
-        <SoftBox mt={3} mb={2}>
+        {/* <SoftBox mt={3} mb={2}>
           <SoftBox mb={2}>
             <SoftButton
               component={Link}
@@ -223,9 +223,9 @@ function Configurator() {
           >
             view documentation
           </SoftButton>
-        </SoftBox>
+        </SoftBox> */}
         <SoftBox display="flex" justifyContent="center">
-          <a
+          {/* <a
             className="github-button"
             href="https://github.com/creativetimofficial/soft-ui-dashboard-react"
             data-icon="octicon-star"
@@ -234,14 +234,14 @@ function Configurator() {
             aria-label="Star creativetimofficial/soft-ui-dashboard-react on GitHub"
           >
             Star
-          </a>
+          </a> */}
         </SoftBox>
         <SoftBox mt={3} textAlign="center">
-          <SoftBox mb={0.5}>
+          {/* <SoftBox mb={0.5}>
             <SoftTypography variant="h6">Thank you for sharing!</SoftTypography>
-          </SoftBox>
+          </SoftBox> */}
 
-          <SoftBox display="flex" justifyContent="center">
+          {/* <SoftBox display="flex" justifyContent="center">
             <SoftBox mr={1.5}>
               <SoftButton
                 component={Link}
@@ -264,7 +264,8 @@ function Configurator() {
               <FacebookIcon />
               &nbsp; Share
             </SoftButton>
-          </SoftBox>
+          </SoftBox> */}
+
         </SoftBox>
       </SoftBox>
     </ConfiguratorRoot>

@@ -44,6 +44,7 @@ import RTL from "layouts/rtl";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
+import Tracking from "components/Tracking/Tracking";
 
 // Soft UI Dashboard React icons
 import Shop from "examples/Icons/Shop";
@@ -67,9 +68,9 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Tables",
-    key: "tables",
-    route: "/tables",
+    name: "UrTracking",
+    key: "UrTracking",
+    route: "/UrTracking",
     icon: <Office size="12px" />,
     component: <Tables />,
     noCollapse: true,
@@ -124,7 +125,7 @@ const routes = [
     type: "collapse",
     name: "Sign Up",
     key: "sign-up",
-    route: "/authentication/sign-up",
+    route: "/authentication/track",
     icon: <SpaceShip size="12px" />,
     component: <SignUp />,
     noCollapse: true,

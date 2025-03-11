@@ -36,8 +36,8 @@ function BasicLayout({ title, description, image, children }) {
       <DefaultNavbar
         action={{
           type: "external",
-          route: "https://creative-tim.com/product/soft-ui-dashboard-react",
-          label: "free download",
+          route: "https://www.plan.su.ac.th/rating/input.php?s_id=dt&s_name=ระบบติดตามเอกสาร",
+          label: "ประเมินความพึงพอใจ/แนะนำบริการ",
         }}
         transparent
         light
@@ -77,7 +77,7 @@ function BasicLayout({ title, description, image, children }) {
           </Grid>
         </Grid>
       </SoftBox>
-      <SoftBox mt={{ xs: -26, lg: -24 }} px={1} width="calc(100% - 2rem)" mx="auto">
+      <SoftBox mt={{ xs: -46, lg: -44 }} px={1} width="calc(100% - 2rem)" mx="auto">
         <Grid container spacing={1} justifyContent="center">
           <Grid item xs={11} sm={9} md={5} lg={4} xl={3}>
             {children}

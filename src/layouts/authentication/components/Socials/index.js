@@ -20,7 +20,7 @@ import SoftBox from "components/SoftBox";
 function Socials() {
   return (
     <SoftBox display="flex" justifyContent="center">
-      <SoftButton variant="outlined" color="light">
+      {/* <SoftButton variant="outlined" color="light">
         <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1">
           <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <g transform="translate(3.000000, 3.000000)" fillRule="nonzero">
@@ -32,8 +32,8 @@ function Socials() {
             </g>
           </g>
         </svg>
-      </SoftButton>
-      <SoftBox px={1}>
+      </SoftButton> */}
+      {/* <SoftBox px={1}>
         <SoftButton variant="outlined" color="light">
           <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1">
             <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -43,7 +43,7 @@ function Socials() {
             </g>
           </svg>
         </SoftButton>
-      </SoftBox>
+      </SoftBox> */}
       <SoftButton variant="outlined" color="light">
         <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1">
           <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">

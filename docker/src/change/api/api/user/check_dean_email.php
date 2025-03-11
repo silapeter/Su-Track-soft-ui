@@ -1,0 +1,27 @@
+<?php 
+  header('Access-Control-Allow-Origin: *');
+  header('Content-Type: application/json');
+
+  include_once '../../config/database.php';
+  include_once '../../models/user.php';
+
+
+  $database = new Database();
+  $db = $database->connect();
+
+  $user_table = new User($db);
+  $userName = $_GET['user_email'];
+  $token = $_GET['token'];
+
+
+    if($database->token == $token){
+        $result = $user_table->_check_dean_email($userName);  
+    } else {
+      $result = array(
+                       'error' => 'no token available or invalid token',     
+                    );
+    }
+
+          echo json_encode($result);
+?>
+

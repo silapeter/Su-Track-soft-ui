@@ -29,20 +29,19 @@ function OrdersOverview() {
     <Card className="h-100">
       <SoftBox pt={3} px={3}>
         <SoftTypography variant="h6" fontWeight="medium">
-          Orders overview
+          สถานะเอกสาร
         </SoftTypography>
         <SoftBox mt={1} mb={2}>
           <SoftTypography variant="button" color="text" fontWeight="regular">
             <SoftTypography display="inline" variant="body2" verticalAlign="middle">
-              <Icon sx={{ fontWeight: "bold", color: ({ palette: { success } }) => success.main }}>
+              {/* <Icon sx={{ fontWeight: "bold", color: ({ palette: { success } }) => success.main }}>
                 arrow_upward
-              </Icon>
+              </Icon> */}
             </SoftTypography>
-            &nbsp;
-            <SoftTypography variant="button" color="text" fontWeight="medium">
+            {/* <SoftTypography variant="button" color="text" fontWeight="medium">
               24%
-            </SoftTypography>{" "}
-            this month
+            </SoftTypography>{" "} */}
+            การเคลื่อนไหวของเอกสาร
           </SoftTypography>
         </SoftBox>
       </SoftBox>
@@ -50,34 +49,27 @@ function OrdersOverview() {
         <TimelineItem
           color="success"
           icon="notifications"
-          title="$2400, Design changes"
-          dateTime="22 DEC 7:20 PM"
-        />
-        <TimelineItem
-          color="error"
-          icon="inventory_2"
-          title="New order #1832412"
-          dateTime="21 DEC 11 PM"
+          title="เข้าระบบ (คณะสมมติ : pikajuu_s)"
+          dateTime="20 DEC 7:20 PM"
         />
         <TimelineItem
           color="info"
-          icon="shopping_cart"
-          title="Server payments for April"
+          icon="payment"
+          title="กองกลาง (sommutt_s)"
           dateTime="21 DEC 9:34 PM"
         />
         <TimelineItem
           color="warning"
           icon="payment"
-          title="New card added for order #4395133"
-          dateTime="20 DEC 2:20 AM"
+          title="เลขารองวิชาการ (maimeejing_s)"
+          dateTime="22 DEC 2:20 AM"
         />
         <TimelineItem
           color="primary"
           icon="vpn_key"
-          title="New card added for order #4395133"
-          dateTime="18 DEC 4:54 AM"
+          title="คณะสมมติ (pikajuu_s)"
+          dateTime="23 DEC 4:54 AM"
         />
-        <TimelineItem color="dark" icon="paid" title="New order #9583120" dateTime="17 DEC" />
       </SoftBox>
     </Card>
   );

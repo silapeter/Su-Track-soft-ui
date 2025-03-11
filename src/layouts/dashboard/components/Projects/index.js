@@ -64,10 +64,10 @@ function Projects() {
       <SoftBox display="flex" justifyContent="space-between" alignItems="center" p={3}>
         <SoftBox>
           <SoftTypography variant="h6" gutterBottom>
-            Projects
+            รายการเอกสาร
           </SoftTypography>
           <SoftBox display="flex" alignItems="center" lineHeight={0}>
-            <Icon
+            {/* <Icon
               sx={{
                 fontWeight: "bold",
                 color: ({ palette: { info } }) => info.main,
@@ -75,9 +75,9 @@ function Projects() {
               }}
             >
               done
-            </Icon>
+            </Icon> */}
             <SoftTypography variant="button" fontWeight="regular" color="text">
-              &nbsp;<strong>30 done</strong> this month
+              รายการเอกสารในระบบ
             </SoftTypography>
           </SoftBox>
         </SoftBox>

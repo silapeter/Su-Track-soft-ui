@@ -20,8 +20,8 @@ import team3 from "assets/images/team-3.jpg";
 import team4 from "assets/images/team-4.jpg";
 
 export default function data() {
-  const avatars = (members) =>
-    members.map(([image, name]) => (
+  const avatars = (related) =>
+    related.map(([image, name]) => (
       <Tooltip key={name} title={name} placeholder="bottom">
         <SoftAvatar
           src={image}
@@ -47,16 +47,16 @@ export default function data() {
 
   return {
     columns: [
-      { name: "companies", align: "left" },
-      { name: "members", align: "left" },
-      { name: "budget", align: "center" },
-      { name: "completion", align: "center" },
+      { name: "subject", align: "left" },
+      { name: "related", align: "left" },
+      { name: "office", align: "left" },
+      { name: "owner", align: "left" },
     ],
 
     rows: [
       {
-        companies: [logoXD, "Soft UI XD Version"],
-        members: (
+        subject: [logoXD, "คำสั่งที่ 666/2575 เรื่อง แต่งตั้งผู้รักษาการแทนรองอธิการบดีฝ่ายกิจการนักศึกษา ผู้ช่วยศาสตราจารย์ ดร.สมมติ ไม่มีจริง"],
+        related: (
           <SoftBox display="flex" py={1}>
             {avatars([
               [team1, "Ryan Tompson"],
@@ -66,20 +66,21 @@ export default function data() {
             ])}
           </SoftBox>
         ),
-        budget: (
+        office: (
           <SoftTypography variant="caption" color="text" fontWeight="medium">
-            $14,000
+            สำนักงานอธิการบดี
           </SoftTypography>
         ),
-        completion: (
+        owner: (
           <SoftBox width="8rem" textAlign="left">
-            <SoftProgress value={60} color="info" variant="gradient" label={false} />
+            sungjuic_w
+            {/* <SoftProgress value={60} color="info" variant="gradient" label={false} /> */}
           </SoftBox>
         ),
       },
       {
-        companies: [logoAtlassian, "Add Progress Track"],
-        members: (
+        subject: [logoAtlassian, "ขอเชิญเข้าร่วมโครงการประชุมวิชาการ หัวข้อ นวัตกรรมและเทคโนโลยีกับการบริหารเพื่อการสร้างสรรค์อย่างยั่งยืน"],
+        related: (
           <SoftBox display="flex" py={1}>
             {avatars([
               [team2, "Romina Hadid"],
@@ -87,20 +88,21 @@ export default function data() {
             ])}
           </SoftBox>
         ),
-        budget: (
+        office: (
           <SoftTypography variant="caption" color="text" fontWeight="medium">
-            $3,000
+            สำนักดิจิทัลเทคโนโลยี
           </SoftTypography>
         ),
-        completion: (
+        owner: (
           <SoftBox width="8rem" textAlign="left">
-            <SoftProgress value={10} color="info" variant="gradient" label={false} />
+            sampleemail_s
+            {/* <SoftProgress value={10} color="info" variant="gradient" label={false} /> */}
           </SoftBox>
         ),
       },
       {
-        companies: [logoSlack, "Fix Platform Errors"],
-        members: (
+        subject: [logoSlack, "มาตรการด้านความปลอดภัยภายในวิทยาเขตพระราชวังสนามจันทร์งานพิธีพระราชทานปริญญาบัตรประจำปีการศึกษา 2566 "],
+        related: (
           <SoftBox display="flex" py={1}>
             {avatars([
               [team1, "Ryan Tompson"],
@@ -108,76 +110,15 @@ export default function data() {
             ])}
           </SoftBox>
         ),
-        budget: (
+        office: (
           <SoftTypography variant="caption" color="text" fontWeight="medium">
-            Not set
+            กองกลาง
           </SoftTypography>
         ),
-        completion: (
+        owner: (
           <SoftBox width="8rem" textAlign="left">
-            <SoftProgress value={100} color="success" variant="gradient" label={false} />
-          </SoftBox>
-        ),
-      },
-      {
-        companies: [logoSpotify, "Launch our Mobile App"],
-        members: (
-          <SoftBox display="flex" py={1}>
-            {avatars([
-              [team4, "Jessica Doe"],
-              [team3, "Alexander Smith"],
-              [team2, "Romina Hadid"],
-              [team1, "Ryan Tompson"],
-            ])}
-          </SoftBox>
-        ),
-        budget: (
-          <SoftTypography variant="caption" color="text" fontWeight="medium">
-            $20,500
-          </SoftTypography>
-        ),
-        completion: (
-          <SoftBox width="8rem" textAlign="left">
-            <SoftProgress value={100} color="success" variant="gradient" label={false} />
-          </SoftBox>
-        ),
-      },
-      {
-        companies: [logoJira, "Add the New Pricing Page"],
-        members: (
-          <SoftBox display="flex" py={1}>
-            {avatars([[team4, "Jessica Doe"]])}
-          </SoftBox>
-        ),
-        budget: (
-          <SoftTypography variant="caption" color="text" fontWeight="medium">
-            $500
-          </SoftTypography>
-        ),
-        completion: (
-          <SoftBox width="8rem" textAlign="left">
-            <SoftProgress value={25} color="info" variant="gradient" label={false} />
-          </SoftBox>
-        ),
-      },
-      {
-        companies: [logoInvesion, "Redesign New Online Shop"],
-        members: (
-          <SoftBox display="flex" py={1}>
-            {avatars([
-              [team1, "Ryan Tompson"],
-              [team4, "Jessica Doe"],
-            ])}
-          </SoftBox>
-        ),
-        budget: (
-          <SoftTypography variant="caption" color="text" fontWeight="medium">
-            $2,000
-          </SoftTypography>
-        ),
-        completion: (
-          <SoftBox width="8rem" textAlign="left">
-            <SoftProgress value={40} color="info" variant="gradient" label={false} />
+            sommutt_m
+            {/* <SoftProgress value={100} color="success" variant="gradient" label={false} /> */}
           </SoftBox>
         ),
       },

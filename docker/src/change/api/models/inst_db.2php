@@ -1,0 +1,108 @@
+<?php
+  class Instru {
+    // DB Stuff
+    private $conn;
+    private $table = "input_structure";
+
+
+
+
+    public $inst_id;
+    public $dept_id;
+    public $stru_id;
+    public $log;
+
+    // Constructor with DB
+    public function __construct($db) {
+      $this->conn = $db;
+    }
+
+ public function save_inst($saveMode)
+    {
+
+
+                if($saveMode == 'insert'){          
+
+                        $query = "INSERT INTO $this->table (`dept_id`, `stru_id`, `log`,`id`) 
+                        VALUES (?,?,?,?)";
+
+                } else if($saveMode == 'update') {
+
+                        $query = "UPDATE $this->table SET `dept_id`= ? ,`stru_id`= ? ,`log`= ?  
+                        WHERE  `id` = ? ";
+
+                }
+                        $stmt = $this->conn->prepare($query);
+
+                                $stmt->bindParam(1, $this->dept_id);
+                                $stmt->bindParam(2, $this->stru_id);
+                                $stmt->bindParam(3, $this->log);
+                                $stmt->bindParam(4, $this->inst_id);
+
+                try {
+                $stmt->execute();
+                        //success
+                        $errTxt = "บันทึกข้อมูลในฐานข้อมูลแล้ว";
+                        $result = array(
+                        'result' => true,
+                        'error' => $errTxt,     
+                    );
+                }
+                catch (PDOException $e) {
+                        //error
+                        $errTxt = "ไม่สามารถบันทึกข้อมูลในฐานข้อมูลได้: inst_table " . $e->getMessage();
+                                $result = array(
+                                'result' => false,
+                                'error' => $errTxt,     
+                        );
+
+                }
+
+                return $result;
+    }
+
+
+    public function del_inst($id)
+    {
+                        $query = "DELETE FROM $this->table  
+                        WHERE  `id` = ? ";
+                
+                        $stmt = $this->conn->prepare($query);
+                                $stmt->bindParam(1, $id);
+                try {
+                $stmt->execute();
+                        //success
+                        $errTxt = "ลบข้อมูลในฐานข้อมูล";
+                        $result = array(
+                        'result' => true,
+                        'error' => $errTxt,     
+                    );
+                }
+                catch (PDOException $e) {
+                        //error
+                        $errTxt = "ไม่สามารถลบข้อมูลในฐานข้อมูลได้: user_table" . $e->getMessage();
+                                $result = array(
+                                'result' => false,
+                                'error' => $errTxt,     
+                        );
+
+                }
+
+                return $result;
+        }
+
+        public function checkDup()
+    {
+        $query = "SELECT * FROM $this->table d
+                      WHERE d.dept_id = ? AND d.stru_id = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1,$this->dept_id);
+        $stmt->bindParam(2,$this->stru_id);
+        $stmt->execute();
+        $fiscal_am = $stmt->rowCount();
+        
+                if($fiscal_am>0) return true; else return false;
+    }
+  }
+  ?>

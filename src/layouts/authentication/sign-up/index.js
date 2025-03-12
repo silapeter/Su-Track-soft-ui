@@ -36,6 +36,10 @@ function SignUp() {
       setError("กรุณากรอกเบอร์โทรภายในเป็นตัวเลข 6 หลัก");
       return;
     }
+    if (!agreement) {  // ตรวจสอบว่าเช็คบ็อกซ์ถูกเลือกหรือไม่
+      setError("เราไม่สามารถทำทำรายการได้หากท่านไม่ให้การยินยอมในการจัดเก็บข้อมูลส่วนบุคคลที่จำเป็น");
+      return;
+    }
     setError("");
     setOpenModal(true);
   };
@@ -142,7 +146,7 @@ function SignUp() {
             <SoftButton variant="gradient" color="dark" onClick={handleCloseModal}>
               ยืนยัน
             </SoftButton>
-            <SoftButton variant="gradient" color="warning" onClick={handleCloseModal}>
+            <SoftButton variant="gradient" color="error" onClick={handleCloseModal}>
               ยกเลิก
             </SoftButton>
           </SoftBox>

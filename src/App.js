@@ -31,6 +31,9 @@ import { useSoftUIController, setMiniSidenav } from "context";
 // Images
 import brand from "assets/images/logo-ct2.png";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
+
 export default function App() {
   const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, sidenavColor } = controller;
@@ -92,7 +95,7 @@ export default function App() {
       {layout === "vr" && <Configurator />}
       <Routes>
         {getRoutes(routes)}
-        <Route path="*" element={<Navigate to="/authentication/track" />} />
+        <Route path="*" element={<Navigate to="/tracking" />} />
       </Routes>
     </ThemeProvider>
   );

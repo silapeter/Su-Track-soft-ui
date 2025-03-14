@@ -78,6 +78,12 @@ function DefaultNavbar({ transparent, light, action }) {
       >
         <SoftBox color="inherit" display={{ xs: "none", lg: "flex" }} m={0} p={0}>
           <DefaultNavbarLink
+            icon="home"
+            name="home"
+            route="/tracking"
+            light={light}
+          />
+          <DefaultNavbarLink
             icon="account_circle"
             name="sign up"
             route="/authentication/sign-up"

@@ -44,7 +44,7 @@ function BasicLayout({ title, description, image, children }) {
       />
       <SoftBox
         width="calc(100% - 2rem)"
-        minHeight="50vh"
+        minHeight="60vh"
         borderRadius="lg"
         mx={2}
         my={2}
@@ -54,8 +54,8 @@ function BasicLayout({ title, description, image, children }) {
           backgroundImage: ({ functions: { linearGradient, rgba }, palette: { gradients } }) =>
             image &&
             `${linearGradient(
-              rgba(gradients.dark.main, 0.6),
-              rgba(gradients.dark.state, 0.6)
+              rgba(gradients.dark.main,0.5),
+              rgba(gradients.dark.state, 0.5),
             )}, url(${image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -65,7 +65,7 @@ function BasicLayout({ title, description, image, children }) {
         <Grid container spacing={3} justifyContent="center" sx={{ textAlign: "center" }}>
           <Grid item xs={10} lg={4}>
             <SoftBox mt={6} mb={1}>
-              <SoftTypography variant="h1" color="white" fontWeight="bold">
+              <SoftTypography variant="h1" style={{ color: "#FFD700" }} fontWeight="bold">
                 {title}
               </SoftTypography>
             </SoftBox>
@@ -79,7 +79,7 @@ function BasicLayout({ title, description, image, children }) {
       </SoftBox>
       <SoftBox mt={{ xs: -46, lg: -44 }} px={1} width="calc(100% - 2rem)" mx="auto">
         <Grid container spacing={1} justifyContent="center">
-          <Grid item xs={11} sm={9} md={5} lg={4} xl={3}>
+          <Grid item xs={11} sm={9} md={5} lg={5} xl={5}>
             {children}
           </Grid>
         </Grid>

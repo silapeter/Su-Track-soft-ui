@@ -58,11 +58,11 @@ function Footer() {
                 เว็บไซต์มหาวิทยาลัยศิลปากร
               </SoftTypography>
             </SoftBox>
-            <SoftBox>
+            {/* <SoftBox>
               <SoftTypography component="a" href="#" variant="body2" color="secondary">
                 จำนวนผู้เข้าหน้าเว็บนี้ : 1000 ครั้ง
               </SoftTypography>
-            </SoftBox>
+            </SoftBox> */}
           </SoftBox>
         </Grid>
         <Grid item xs={12} lg={8}>

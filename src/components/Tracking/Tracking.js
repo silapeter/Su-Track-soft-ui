@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 // import Modal from "@mui/material/Modal";
 // import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -40,7 +40,7 @@ function Tracking() {
         }
         setOpentrans(true);
     };
-    console.log("DocumentCode: ");
+    // console.log("DocumentCode: ");
     return (
         <>
             <BasicLayout

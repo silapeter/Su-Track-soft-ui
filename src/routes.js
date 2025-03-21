@@ -134,7 +134,7 @@ const routes = [
     type: "collapse",
     name: "tracking",
     key: "tracking",
-    route: "/tracking",
+    route: "/",
     icon: <SpaceShip size="12px" />,
     component: <Tracking />,
     noCollapse: true,

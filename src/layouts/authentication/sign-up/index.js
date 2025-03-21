@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
 import Checkbox from "@mui/material/Checkbox";
 import Modal from "@mui/material/Modal";
@@ -12,16 +12,103 @@ import BasicLayout from "layouts/authentication/components/BasicLayout";
 import Socials from "layouts/authentication/components/Socials";
 import Separator from "layouts/authentication/components/Separator/index2";
 import curved6 from "assets/images/curved-images/curved14.jpg";
+import config from "../../../config.json";
+import emailjs from "emailjs-com";
+
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
+import axios from "axios";
 
 function SignUp() {
+  const navigate = useNavigate();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.send(
+      "service_vpgp5m2",  // ใส่ Service ID จาก EmailJS
+      "template_4us3tz6", // ใส่ Template ID
+      formData,
+      "oENL7Nnivp_ZDKTct"      // ใส่ User ID จาก EmailJS
+    )
+      .then(response => {
+        console.log("Email sent successfully!", response);
+        alert("Email sent successfully!");
+        setFormData({ to_name: "", to_email: "", confirm_link: "", confirm_code: "" }); // เคลียร์ฟอร์ม
+      })
+      .catch(error => {
+        console.error("Failed to send email:", error);
+        alert("Failed to send email. Please try again.");
+      });
+  };
+
+
   const [agreement, setAgreement] = useState(true);
   const [openModal, setOpenModal] = useState(false);
+  const [error, setError] = useState("");
+
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [error, setError] = useState("");
 
   const handleSetAgreement = () => setAgreement(!agreement);
+
+  // State สำหรับแจ้งเตือน
+  const [alertOpen, setAlertOpen] = useState(false);
+
+  const ranDomCode = (length = 5) => {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      result += characters[randomIndex];
+    }
+    return result;
+  }
+
+  const regis = async () => {
+    await axios
+      .post(`${config.API_URL}user/regis.php`, {
+        token: config.TOKEN,
+        email: email,
+        name: name,
+        phone: phone,
+        text: ranDomCode()
+
+      })
+      .then((r) => {
+        setOpenModal(true)
+      })
+      .catch((e) => {
+        console.log(e);
+        return false;
+      });
+  };
+
+
+  const checkExit = async () => {
+    // console.log(currentUser)
+    await axios
+      .get(`${config.API_URL}user/checkexit.php`, {
+        params: {
+          token: config.TOKEN,
+          email: email,
+        }
+      })
+      .then((r) => {
+        // console.log(r.data.found);
+        if (r.data.found == 1) {
+          setAlertOpen(true);
+        } else {
+          regis();
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+        return false;
+      });
+  }
+
 
   const handleSignUp = () => {
     if (!name.trim()) {
@@ -39,12 +126,17 @@ function SignUp() {
     if (!agreement) {  // ตรวจสอบว่าเช็คบ็อกซ์ถูกเลือกหรือไม่
       setError("เราไม่สามารถทำทำรายการได้หากท่านไม่ให้การยินยอมในการจัดเก็บข้อมูลส่วนบุคคลที่จำเป็น");
       return;
+    } else {
+      setError("");
+      checkExit();
     }
-    setError("");
-    setOpenModal(true);
   };
 
-  const handleCloseModal = () => setOpenModal(false);
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+    navigate("/");
+  };
 
   return (
     <BasicLayout
@@ -65,19 +157,19 @@ function SignUp() {
         <SoftBox pt={2} pb={3} px={3}>
           <SoftBox component="form" role="form">
             <SoftBox mb={2}>
-              <SoftInput placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+              <SoftInput placeholder="ชื่อภาษาไทย คำนำหน้า + ชื่อ + ชื่อกลาง (ถ้ามี) + นามสกุล ตย. นายสมมติ ไม่มีจริง" value={name} onChange={(e) => setName(e.target.value)} />
             </SoftBox>
             <SoftBox mb={2}>
               <SoftInput
                 type="email"
-                placeholder="Email @silpakorn.edu"
+                placeholder="อีเมล @silpakorn.edu ตย. maimeejing_s@silpakorn.edu"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </SoftBox>
             <SoftBox mb={2}>
               <SoftInput
-                type="text"
+                type="เบอร์โทรภายในที่ติดต่อได้"
                 placeholder="เบอร์โทรภายใน (6 หลัก)"
                 value={phone}
                 onChange={(e) => {
@@ -137,21 +229,35 @@ function SignUp() {
           }}
         >
           <SoftTypography variant="h6" fontWeight="bold">
-            กรุณาเปิดอีเมลที่ท่านใช้สมัครใช้บริการ และกรอกรหัสยืนยันที่ท่านได้ทางอีเมลในช่องด้านล่าง
+            กรุณาเปิดอีเมล {email}
           </SoftTypography>
-          <SoftBox mb={3}>
+          <SoftTypography variant="h6" fontWeight="bold">
+            และคลิกลิงก์ยืนยันการสมัคร
+          </SoftTypography>
+          {/* <SoftBox mb={3}>
             <SoftInput placeholder="รหัสยืนยัน" />
-          </SoftBox>
-          <SoftBox mt={3} display="flex" justifyContent="space-between">
-            <SoftButton variant="gradient" color="dark" onClick={handleCloseModal}>
+          </SoftBox> */}
+          <SoftBox mt={3} display="flex" justifyContent="center">
+            <SoftButton variant="gradient" color="success" onClick={handleCloseModal}>
               ยืนยัน
             </SoftButton>
-            <SoftButton variant="gradient" color="error" onClick={handleCloseModal}>
-              ยกเลิก
-            </SoftButton>
           </SoftBox>
+          <SoftTypography variant="body2"  mt={4}>
+            คลิกปุ่มยืนยันเพื่อกลับสู่หน้าหลัก
+          </SoftTypography>
         </Box>
       </Modal>
+      {/* Snackbar แจ้งเตือนเมื่อไม่ได้กรอกหมายเลขเอกสาร */}
+      <Snackbar
+        open={alertOpen}
+        autoHideDuration={3000} // ปิดอัตโนมัติใน 3 วินาที
+        onClose={() => setAlertOpen(false)}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }} // ตำแหน่งของแจ้งเตือน
+      >
+        <MuiAlert severity="error" sx={{ width: "100%" }} onClose={() => setAlertOpen(false)}>
+          อีเมลนี้มีการใช้งานแล้ว
+        </MuiAlert>
+      </Snackbar>
     </BasicLayout>
   );
 }

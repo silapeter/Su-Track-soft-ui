@@ -17,9 +17,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "App";
+import ReactGA from "react-ga4";
 
 // Soft UI Dashboard React Context Provider
 import { SoftUIControllerProvider } from "context";
+
+ReactGA.initialize("G-946K9WFQ2P"); // แทนที่ด้วย Measurement ID
+ReactGA.send("pageview"); // บันทึกการเข้าหน้าเว็บ
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
